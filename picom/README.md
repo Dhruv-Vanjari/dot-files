@@ -12,4 +12,4 @@ mkdir ~/.config/picom
 cp ./picom.conf ~/.config/picom/picom.conf
 ```
 
-> Read the vimrc for details on usage
+> Read the picom.conf for details on usage
