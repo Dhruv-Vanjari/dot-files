@@ -10,7 +10,7 @@ cp ./vimrc ~/.vimrc
 
 # Dependencies
 * Plug         -> plugin manager
-* .vim/undodir -> directory
+* ~/.vim/undodir -> directory
 
 Final Step
 ---------
