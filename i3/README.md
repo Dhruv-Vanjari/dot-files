@@ -13,4 +13,4 @@ cp ./config ~/.config/i3/config
 * i3-bar
 * dmenu
 
-> Read the vimrc for details on usage
+> Read the config for details on usage
