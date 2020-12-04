@@ -22,3 +22,9 @@ PlugInstall
 ```
 
 > Read the vimrc for details on usage
+
+Command for installing Plug
+```
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
