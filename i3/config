@@ -13,11 +13,11 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+font pango:Source Code Pro 9
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
+# font pango:DejaVu Sans Mono 10
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -41,7 +41,8 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+# bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec lxterminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -82,6 +83,7 @@ bindsym $mod+Shift+s split h
 
 # split in vertical orientation
 bindsym $mod+Shift+v split v
+
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -147,8 +149,11 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
+# lock the screen
+bindsym $mod+Ctrl+l exec i3lock
+
 # exit i3 without warning
-bindsym $mod+c exec i3 exit
+# bindsym $mod+c exec i3 exit
 
 # kill current window
 bindsym $mod+t kill
@@ -191,8 +196,28 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command i3status
-	position bottom
-}
 
+set $background             #1f1f1f
+set $statusline             #dedede
+set $focused_workspace      #4173be
+set $inactive_workspace     #15253d
+set $inactive_text          #afafaf
+set $separator              #4b4b4b
+set $urgent_workspace       #c34a36
+
+bar {
+        font pango:Source Code Pro Bold 9
+        status_command i3status
+        height 20
+        position top
+
+        colors {
+#               CATEGORY            BORDER                 BACKGROUND                 TEXT
+                background          $background
+                statusline          $statusline
+                separator           $separator
+                urgent_workspace    $urgent_workspace      $urgent_workspace          $statusline
+                focused_workspace   $focused_workspace     $focused_workspace         $background
+                inactive_workspace  $background            $background                $inactive_text
+        }
+}
