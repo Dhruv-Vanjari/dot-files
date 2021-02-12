@@ -11,6 +11,7 @@ cp ./vimrc ~/.vimrc
 # Dependencies
 * Plug         -> plugin manager
 * ~/.vim/undodir -> directory
+* nodejs
 
 Final Step
 ---------
